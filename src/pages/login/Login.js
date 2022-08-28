@@ -1,0 +1,43 @@
+import React from "react";
+import { Row, Col } from "antd";
+
+const Login = (props) => {
+  return (
+    <>
+      <Row>
+        <Col
+          xs={2}
+          sm={4}
+          md={6}
+          lg={8}
+          xl={10}
+          style={{ backgroundColor: "red" }}
+        >
+          hello {props.name}
+        </Col>
+        <Col
+          xs={20}
+          sm={16}
+          md={12}
+          lg={8}
+          xl={4}
+          style={{ backgroundColor: "blue" }}
+        >
+          Col
+        </Col>
+        <Col
+          xs={2}
+          sm={4}
+          md={6}
+          lg={8}
+          xl={10}
+          style={{ backgroundColor: "green" }}
+        >
+          Col
+        </Col>
+      </Row>
+    </>
+  );
+};
+
+export default Login;
