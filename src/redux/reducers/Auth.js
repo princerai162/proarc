@@ -2,7 +2,8 @@ import { UPDATE_AUTH } from "../../config/actionTypes";
 
 const INITIAL_STATE = {
   loading: false,
-  isAuth: false,
+  errorMessage: "",
+  isAuth: undefined,
   userDetails: {},
 };
 

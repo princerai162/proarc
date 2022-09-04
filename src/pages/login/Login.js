@@ -1,20 +1,16 @@
 import React from "react";
 import { Row, Col, Form, Input, Button } from "antd";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import expertServe from "../../api/expertServe";
+
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/action/AuthAction";
 
 const Login = (props) => {
+  const dispatch = useDispatch();
   const { height } = useWindowDimensions();
 
   const onFinish = (values) => {
-    expertServe.post("/login").then((response) => {
-      if (response.data.success) {
-        // means success
-        //redirect user to dashboard
-      } else {
-        //show the error message
-      }
-    });
+    dispatch(login(values));
   };
 
   return (

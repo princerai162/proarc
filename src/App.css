@@ -1,1 +1,11 @@
 @import "~antd/dist/antd.css";
+
+.loader-container {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  flex-direction: column;
+}
