@@ -6,6 +6,8 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import LandingPage from "./LandingPage";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import MainLayout from "./containers/MainLayout";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   const navigate = useNavigate();
@@ -15,10 +17,10 @@ function App() {
 
   //updating phase
   useEffect(() => {
-    if (isAuth) {
+    if (isAuth === true) {
       //navigate to dashboard
       navigate("/dashboard");
-    } else if (!isAuth) {
+    } else if (isAuth === false) {
       // navigate to login
       navigate("/login");
     }
@@ -29,7 +31,10 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<MainLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
     </>
   );
