@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Form, Input, Button } from "antd";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
@@ -9,7 +9,7 @@ const Login = (props) => {
   const dispatch = useDispatch();
   const { height } = useWindowDimensions();
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     dispatch(login(values));
   };
 
