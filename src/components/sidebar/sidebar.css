@@ -1,0 +1,29 @@
+.sidebar-container {
+  width: 80px;
+  background-color: #121212;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 2px;
+  margin: 2px;
+  border-bottom: #fff;
+  border-bottom-width: 2px;
+}
+
+.menu-item:hover {
+  background-color: #ffbc0d;
+}
+
+.menu-text {
+  font-size: 10px;
+  color: #fff;
+}
+
+.menu-icon {
+  font-size: 25px;
+  color: #fff;
+}

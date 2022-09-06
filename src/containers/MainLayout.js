@@ -3,8 +3,8 @@ import { Navigate, useLocation, Outlet } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
 import Sidebar from "../components/sidebar/Sidebar";
+import { Layout } from "antd";
 
 function MainLayout() {
   const authState = useSelector((state) => state.auth);
@@ -17,12 +17,13 @@ function MainLayout() {
   }
 
   return (
-    <>
+    <Layout>
       <Header />
-      <Sidebar />
-      <Outlet />
-      <Footer />
-    </>
+      <div style={{ display: "flex" }}>
+        <Sidebar />
+        <Outlet />
+      </div>
+    </Layout>
   );
 }
 
