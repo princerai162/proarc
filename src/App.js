@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "./containers/MainLayout";
 import Profile from "./pages/profile/Profile";
+import Incidents from "./pages/incidents/Incidents";
 
 function App() {
   const navigate = useNavigate();
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/incidents" element={<Incidents />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>

@@ -1,6 +1,7 @@
 import { HomeFilled, HomeOutlined, LineChartOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 const { Text } = Typography;
 
@@ -9,67 +10,65 @@ const Sidebar = () => {
     <div className="sidebar-container">
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
-      </span>
-
-      <span className="menu-item">
-        <HomeFilled className="menu-icon" />
-        <Text className="menu-text">Unit Home</Text>
-      </span>
-
-      <span className="menu-item">
-        <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Data Link</Text>
+        <Link to={"/dashboard"}>
+          <Text className="menu-text">Dashboard</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Current History</Text>
+        <Link to={"/current-history"}>
+          <Text className="menu-text">Current History</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
 
       <span className="menu-item">
         <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
-      </span>
-
-      <span className="menu-item">
-        <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
-      </span>
-
-      <span className="menu-item">
-        <LineChartOutlined className="menu-icon" />
-        <Text className="menu-text">Dashboard</Text>
+        <Link to={"/incidents"}>
+          <Text className="menu-text">Incidents</Text>
+        </Link>
       </span>
     </div>
   );
