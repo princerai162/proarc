@@ -75,22 +75,26 @@ const Incidents = () => {
       <div className="incident-content">
         <div className="unit-list" style={{ maxHeight: height }}>
           <p>Important active incidents</p>
-          <p>Condenser</p>
+          {Object.keys(incidents).map((key) => (
+            <>
+              <p>{key}</p>
+              {incidents[key].map((incident, index) => (
+                <div key={index} className="list-item-container">
+                  {Boolean(incident.equipmentName) ? (
+                    <Text>{incident.equipmentName[0]}</Text>
+                  ) : null}
 
-          {incidents.map((incident, index) => {
-            return (
-              <div className="list-item-container">
-                <Text>UNIT-4 CT Fan - 6</Text>
-                <div className="list-item">
-                  <div className="label"></div>
-                  <div className="item-container">
-                    <Text>{incident.incidentName}</Text>
-                    <Text>13/Sep 2:39 am</Text>
+                  <div className="list-item">
+                    <div className="label"></div>
+                    <div className="item-container">
+                      <Text>{incident.incidentName}</Text>
+                      <Text>{incident.startTime}</Text>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              ))}
+            </>
+          ))}
         </div>
 
         <div className="unit-details">

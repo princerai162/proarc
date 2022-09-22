@@ -12,11 +12,18 @@ export const getIncidents = (payload) => async (dispatch, getState) => {
     });
     const response = await expertServe.get("/incidents", { params: payload });
 
+    //process it & convert it to desired data structure, then set the store.
+    var groupedIncidents = response.data.reduce(function (r, a) {
+      r[a.kpiGroup] = r[a.kpiGroup] || [];
+      r[a.kpiGroup].push(a);
+      return r;
+    }, Object.create(null));
+
     dispatch({
       type: UPDATE_INCIDENTS,
       payload: {
         loading: false,
-        incidents: response.data,
+        incidents: groupedIncidents,
       },
     });
   } catch (err) {
