@@ -10,7 +10,8 @@ export const login = (data) => async (dispatch, getState) => {
         loading: true,
       },
     });
-    const response = await expertServe.post("/login", data);
+    const response = await expertServe.post("/Users/login", data);
+    await localStorage.setItem("token", response.data.id);
     await localStorage.setItem("auth", JSON.stringify(response.data));
 
     dispatch({
