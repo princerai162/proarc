@@ -1,0 +1,19 @@
+.io {
+}
+
+.io-row {
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-width: 1px;
+  border-bottom-width: 0.1px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+}
+
+.io-text {
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -48,10 +48,15 @@
   margin-top: 10px;
 }
 
+.active {
+  background-color: #17abf0 !important;
+}
+
 .list-item {
   display: flex;
   height: 30px;
   background-color: #dfdfdf;
+  cursor: pointer;
 }
 
 .label {

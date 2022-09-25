@@ -2,13 +2,49 @@ import { Select } from "antd";
 import React from "react";
 import "./header.css";
 import { SyncOutlined } from "@ant-design/icons";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getUnits,
+  updateSelectedUnitId,
+} from "../../redux/action/unitsActions";
+import { useState } from "react";
 
 const Header = () => {
+  const dispatch = useDispatch();
   const { Option } = Select;
 
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
+  const unitsState = useSelector((state) => state.units);
+  const { units } = unitsState;
+
+  const [selectedUnit, setSelectedUnit] = useState("");
+
+  useEffect(() => {
+    dispatch(
+      getUnits({
+        filter: { where: { id: { inq: ["5f608d3a10723ca5deaab563"] } } },
+      })
+    );
+  }, []);
+
+  useEffect(() => {
+    const getUnitLocal = async () => {
+      const selectedU = await localStorage.getItem("selected_unit");
+      setSelectedUnit(selectedU);
+    };
+
+    if (units.length) {
+      getUnitLocal();
+    }
+  }, [units]);
+
+  const handleChange = async (value) => {
+    await localStorage.setItem("selected_unit", value);
+    dispatch(updateSelectedUnitId());
+    setSelectedUnit(value);
   };
+
+  //console.log(selectedUnit);
 
   return (
     <div className="header-container">
@@ -19,15 +55,14 @@ const Header = () => {
           <div className="select-container">
             <Select
               className="select-input"
-              defaultValue="lucy"
+              value={selectedUnit}
               onChange={handleChange}
             >
-              <Option value="jack">Jack</Option>
-              <Option value="lucy">Lucy</Option>
-              <Option value="disabled" disabled>
-                Disabled
-              </Option>
-              <Option value="Yiminghe">yiminghe</Option>
+              {units.map((item, index) => (
+                <Option key={index} value={item.id}>
+                  {item.name}
+                </Option>
+              ))}
             </Select>
             <Select
               className="select-input"
@@ -36,10 +71,6 @@ const Header = () => {
             >
               <Option value="jack">Jack</Option>
               <Option value="lucy">Lucy</Option>
-              <Option value="disabled" disabled>
-                Disabled
-              </Option>
-              <Option value="Yiminghe">yiminghe</Option>
             </Select>
             <Select
               className="select-input"
@@ -48,10 +79,6 @@ const Header = () => {
             >
               <Option value="jack">Jack</Option>
               <Option value="lucy">Lucy</Option>
-              <Option value="disabled" disabled>
-                Disabled
-              </Option>
-              <Option value="Yiminghe">yiminghe</Option>
             </Select>
           </div>
 

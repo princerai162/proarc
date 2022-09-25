@@ -3,7 +3,9 @@ import { UPDATE_INCIDENTS } from "../../config/actionTypes";
 const INITIAL_STATE = {
   loading: false,
   errorMessage: "",
-  incidents: [],
+  incidents: {},
+  selectedIncidentId: "",
+  incidentDetails: {},
 };
 
 const Incidents = (state = INITIAL_STATE, action) => {
